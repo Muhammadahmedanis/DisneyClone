@@ -1,34 +1,18 @@
 import React from "react";
 import styled from "styled-components";
+// import Link from 'react-router-dom';
+
 
 function Movies(){
     return(
         <Container>
             <h4>Recommended for You</h4>
             <Content>
+                {/* {
+                    <Link />
+                } */}
                 <Wrap>
-                    <img src="" alt="" />
-                </Wrap>
-                <Wrap>
-                    <img src="" alt="" />
-                </Wrap>
-                <Wrap>
-                    <img src="" alt="" />
-                </Wrap>
-                <Wrap>
-                    <img src="" alt="" />
-                </Wrap>
-                <Wrap>
-                    <img src="" alt="" />
-                </Wrap>
-                <Wrap>
-                    <img src="" alt="" />
-                </Wrap>
-                <Wrap>
-                    <img src="" alt="" />
-                </Wrap>
-                <Wrap>
-                    <img src="" alt="" />
+                    <img src="https://variety.com/wp-content/uploads/2024/02/Disneyland-Mickey-Mouse.jpg?w=1000&h=667&crop=1" alt="" />
                 </Wrap>
             </Content>
         </Container>
