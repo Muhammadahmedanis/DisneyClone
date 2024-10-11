@@ -106,6 +106,7 @@ const Nav = styled.nav`
     height: 70px;
     background: #090b13 !important;
     display: flex;
+    justify-content: space-between;
     align-items: center;
     padding: 0 36px;
     overflow-x: hidden;
@@ -120,6 +121,9 @@ const NavMenu = styled.div`
     flex: 1;
     margin-left: 25px;
     margin-top: 6px;
+    @media (max-width: 890px){
+        display: none;
+    }
     
     a{
         display: flex;

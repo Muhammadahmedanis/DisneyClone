@@ -4,6 +4,8 @@ import Header from './Components/Header';
 import Home from './Components/Home';
 import Detail from './Components/Detail';
 import Login from './Components/Login';
+import { Provider } from 'react-redux';
+import store from './features/store';
 import {
   BrowserRouter as Router,
   Routes,
@@ -15,14 +17,16 @@ function App() {
 
   return (
     <>
+      <Provider store={store}>
         <Router>
           <Header />
-          <Routes>
-            <Route path='/detail' element={<Detail />} />
-            <Route path='/' element={<Home />} />
-            <Route path='/login' element={<Login />} />
-          </Routes>
+            <Routes>
+              <Route path='/detail/:id' element={<Detail />} />
+              <Route path='/' element={<Home />} />
+              <Route path='/login' element={<Login />} />
+            </Routes>
         </Router>
+      </Provider>
     </>
   )
 }

@@ -1,13 +1,22 @@
 import React from "react";
 import styled from "styled-components";
+import { useParams } from "react-router-dom";
+import moviesData from "../movieData";
+
 function Detail(){
+    const { id } = useParams();
+    
+    let movies = moviesData.find(val => val.id == id);
+    console.log(movies);
+    
     return(
         <Container>
             <Backround>
-                <img src="" alt="" />
+                <img src={movies.poster} alt="" />
             </Backround>
             <ImgTitle>
-                <img src="" alt="" />
+                <Text>{movies.title}</Text>
+                {/* <p></p> */}
             </ImgTitle>
             <Controls>
                 <PlayButton>
@@ -26,10 +35,10 @@ function Detail(){
                 </GroupWatchButton>
             </Controls>
             <SubTitle>
-                2018 7m Family, Fantasy, Kids, Animation
+                {movies.releaseYear} {movies.duration} {movies.genre}
             </SubTitle>
             <Description>
-                Lorem ipsum dolor sit amet consectetur, adipisicing elit. Corporis atque placeat deserunt eaque id sapiente ea quidem officia odio ad dicta, nam repellat facere incidunt nemo sed maiores molestias facilis!
+                {movies.description}
             </Description>
         </Container>
     )
@@ -51,25 +60,43 @@ const Backround = styled.div`
     opacity: 0.8;
 
     img{
-        height: 100%
-        width: 100%;
-        object-fit: cover;
-
-    }
-`
-const ImgTitle = styled.div`
-    height: 30vh;
-    min-height: 170px;
-    width: 35vw;
-    min-width: 200px;
-    margin-top: 60px;
-
-    img{
         height: 100%;
         width: 100%;
         object-fit: cover;
+
     }
 `
+const Text = styled.div`
+    // font-family: 'Baloo 2', cursive;  
+    font-size: 4rem;                 
+    font-weight: 600;                 
+    color: #ffffffcc;                   
+    margin: 0;
+    padding: 10px;
+    display: inline-block;            
+    text-align: center;
+
+    /* Bubble-like shadow effect */
+    text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.2);
+
+    /* Responsive size adjustment */
+    @media (max-width: 760px) {
+        font-size: 2rem;
+    }
+
+    @media (max-width: 480px) {
+        font-size: 1.5rem;
+    }
+`
+
+const ImgTitle = styled.div`
+    // height: 15vh;
+    width: 35vw;
+    min-width: 200px;
+    margin-top: 60px;
+    
+    `
+    // min-height: 170px;
 const Controls = styled.div`
     display: flex;
     align-items: center;
@@ -121,7 +148,8 @@ const GroupWatchButton = styled(AddButton)`
 `
 const SubTitle = styled.div`
     color: rgb(249, 249, 249);
-    fon-size: 15px;
+    font-size: 20px;
+    font-weight: 600;
     min-height: 20px;
     margin-top: 26px;
 `

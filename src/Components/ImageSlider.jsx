@@ -59,8 +59,10 @@ const Wrap = styled.div`
         border-radius: 4px;
         width: 100%;
         height: 100%;
-        box-shadow: rgba(0 0 0 69%) 0px 26px 30px -10px, rgba(0 0 0 73%) 0px 16px 10px -10px;
         transition-duration: 300ms;
+        @media(max-width: 760px){
+            height: 135px;
+        }
     }
 
     &:hover{

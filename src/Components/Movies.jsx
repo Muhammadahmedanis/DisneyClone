@@ -1,19 +1,23 @@
 import React from "react";
 import styled from "styled-components";
-// import Link from 'react-router-dom';
-
+import { useSelector } from "react-redux";
+import { Link } from "react-router-dom";
 
 function Movies(){
+    const movies = useSelector(state => state.movie.movie);
     return(
         <Container>
             <h4>Recommended for You</h4>
             <Content>
-                {/* {
-                    <Link />
-                } */}
-                <Wrap>
-                    <img src="https://variety.com/wp-content/uploads/2024/02/Disneyland-Mickey-Mouse.jpg?w=1000&h=667&crop=1" alt="" />
-                </Wrap>
+                {movies &&
+                    movies.map((val) =>(
+                        <Wrap key={val.id}>
+                            <Link to={`/detail/${val.id}`} >
+                                <img src={val.poster} alt="" />
+                            </Link>
+                        </Wrap>
+                    ) )
+                }
             </Content>
         </Container>
     )
@@ -26,9 +30,17 @@ const Content = styled.div`
     padding: 15px 0px;
     display: grid;
     grid-gap: 25px;
-    grid-template-columns: repeat(4, minmax(0, 1fr));
+    grid-template-columns: repeat(4, minmax(0, 1fr)); 
 
-`
+    @media (max-width: 760px) {
+        grid-template-columns: repeat(2, minmax(0, 1fr)); 
+    }
+
+    @media (max-width: 480px) {
+        grid-template-columns: repeat(1, minmax(0, 1fr)); 
+    }
+`;
+
 const Wrap = styled.div`
     border-radius: 10px;
     cursor: pointer;
