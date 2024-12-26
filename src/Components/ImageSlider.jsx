@@ -44,6 +44,12 @@ const Crousel = styled(Slider)`
     li.slick-active button::before{
         color: white;
     }
+    @media(max-width: 760px){
+        .slick-prev,
+        .slick-next {
+         display: none !important; 
+        }
+    }
 
     .slick-list{
         overflow: visible;

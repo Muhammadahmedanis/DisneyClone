@@ -43,7 +43,7 @@ const Container = styled.div`
 const CTA = styled.div`
     max-width: 650px;
     padding; 80px 40px;
-    width: 90%;
+    width: 80%;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -53,10 +53,10 @@ const CTA = styled.div`
 const CTALogoOne = styled.img`
 `
 const SignUp = styled.a`
-    width: 100%;
+    width: 60%;
     background-color: #0063e5;
     font-weight: bold;
-    padding: 17px 0;
+    padding: 3% 0;
     color: #f9f9f9;
     border-radius: 4px;
     text-align: center;
@@ -80,5 +80,6 @@ const Description = styled.p`
 
 `
 const CTALogoTwo = styled.img`
-    max-width: 600px;
+    margin-top: 5px;
+    width: 98%;
 `
